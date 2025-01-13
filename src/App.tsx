@@ -12,13 +12,13 @@ function App() {
 
       <div>
         <h3 className='font-medium text-lg'>Countries</h3>
-        <p>A list of all the countries including the country's name, country's code and country's capital.</p>
+        <p className='text-secondary/70'>A list of all the countries including the country's name, country's code and country's capital.</p>
       </div>
 
       <InputComponent />
 
       <table className='table-auto text-sm w-full text-left'>
-        <thead className='text-xs text-secondary uppercase border-b border-secondary/10'>
+        <thead className='text-xs text-secondary/70 uppercase border-b border-secondary/10 '>
           <tr>
             <th scope='col' className='px-8 py-6 '>
               Name
@@ -74,7 +74,7 @@ function App() {
 ))} */}
 
           <tr
-            className={`odd:bg-white even:bg-secondary/5 rounded-bl-lg rounded-br-lg ${
+            className={`odd:bg-white even:bg-secondary/5 rounded-bl-lg rounded-br-lg text-secondary/80 ${
               2 - 1 !== 0 ? 'border-b border-secondary/10' : ''
             } `}
           >
