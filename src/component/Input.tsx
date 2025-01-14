@@ -25,7 +25,7 @@ const InputComponent = ({ title, onChange }: InputProps) => {
       </svg>
 
       <input
-        id={title}
+        id='search-input'
         name={title}
         onChange={onChange}
         type='text'

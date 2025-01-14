@@ -24,6 +24,13 @@ Follow these steps to get the project up and running:
    ```bash
      npm run dev
    ```
+
+3. **How to Run E2E Tests:**: 
+   To run the end-to-end (E2E) tests for the app, execute the following command and select 'E2E Testing' in Cypress. Choose your preferred browser to continue:
+
+   ```bash
+     npm run test 
+   ```  
  
 ## Expanding the ESLint configuration
 

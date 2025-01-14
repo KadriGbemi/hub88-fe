@@ -11,7 +11,7 @@ const CountriesComponent = ({ data, loading }: CountriesProps) => {
   if (loading) return <Loading />
 
   return (
-    <table className='table-auto text-sm w-full text-left'>
+    <table className='table-auto text-sm w-full text-left' data-testid='countries-list'>
       <thead className='text-xs text-secondary/70 uppercase border-b border-secondary/10 '>
         <tr>
           <th scope='col' className='px-8 py-6 '>
