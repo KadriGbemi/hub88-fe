@@ -7,6 +7,21 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## How to run the project
+Follow these steps to get the project up and running:
+
+1. **Install Dependencies**: 
+   First, you need to install all the necessary dependencies. This can be done using the following command:
+   ```bash
+   npm run i
+
+   This will install all the required packages listed in the package.json file.
+
+2. **Run the Development Server**: 
+   After installing the dependencies, you can start the development server using:
+   ```bash
+   npm run dev
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
