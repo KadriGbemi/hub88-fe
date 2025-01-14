@@ -1,7 +1,11 @@
+import { ChangeEventHandler } from 'react'
+
 interface InputProps {
   title?: string
+  onChange?: ChangeEventHandler<HTMLInputElement>
 }
-const InputComponent = ({ title }: InputProps) => {
+
+const InputComponent = ({ title, onChange }: InputProps) => {
   return (
     <div className='relative flex border rounded-md border-gray w-full md:w-60 p-1'>
       <svg
@@ -23,6 +27,7 @@ const InputComponent = ({ title }: InputProps) => {
       <input
         id={title}
         name={title}
+        onChange={onChange}
         type='text'
         placeholder='Search by country code'
         className='block min-w-0 grow py-1.5 pl-6 pr-3 text-base 

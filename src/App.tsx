@@ -1,8 +1,20 @@
+import { useState } from 'react'
+import { useQuery } from '@apollo/client'
+import { GET_ALL_COUNTRIES, GET_COUNTRIES_BY_CODE } from './api'
 import InputComponent from './component/Input'
 import logoImageUrl from './assets/logo.jpeg'
 import CountriesComponent from './component/List'
+import { GetCountriesData } from './types'
 
 function App() {
+  const [query, setQuery] = useState('')
+
+  const { data, loading, error } = useQuery<GetCountriesData>(query ? GET_COUNTRIES_BY_CODE : GET_ALL_COUNTRIES, {
+    variables: query ? { code: query } : {},
+  })
+
+  if (error) return `Error! ${error.message}`
+
   return (
     <div className='space-y-8 px-6'>
       <header className='bg-white'>
@@ -18,9 +30,9 @@ function App() {
         </p>
       </div>
 
-      <InputComponent />
+      <InputComponent onChange={(e) => setQuery(e.target.value?.toUpperCase())} />
 
-      <CountriesComponent />
+      <CountriesComponent data={data?.countries} loading={loading} />
     </div>
   )
 }

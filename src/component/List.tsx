@@ -1,61 +1,45 @@
-import { useQuery } from '@apollo/client'
-import { Suspense } from 'react'
-import { GET_ALL_COUNTRIES, GET_COUNTRIES_BY_CODE } from '../api'
-
-interface Countries {
-  capital: string
-  name: string
-  code: string
-}
-
-interface GetCountriesData {
-  countries: Countries[]
-}
+import { Countries } from '../types'
 
 interface CountriesProps {
-  query?: string
+  loading?: boolean
+  data?: Countries[]
 }
 
-const CountriesComponent = ({ query }: CountriesProps) => {
-  const { data, loading, error } = useQuery<GetCountriesData>(query ? GET_COUNTRIES_BY_CODE : GET_ALL_COUNTRIES, {
-    variables: query ? { code: query } : {},
-  })
+const Loading = () => <div>Loading...</div>
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error : {error.message}</p>
+const CountriesComponent = ({ data, loading }: CountriesProps) => {
+  if (loading) return <Loading />
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <table className='table-auto text-sm w-full text-left'>
-        <thead className='text-xs text-secondary/70 uppercase border-b border-secondary/10 '>
-          <tr>
-            <th scope='col' className='px-8 py-6 '>
-              Name
-            </th>
-            <th scope='col' className='px-8 py-6'>
-              Capital
-            </th>
-            <th scope='col' className='px-8 py-6'>
-              Code
-            </th>
+    <table className='table-auto text-sm w-full text-left'>
+      <thead className='text-xs text-secondary/70 uppercase border-b border-secondary/10 '>
+        <tr>
+          <th scope='col' className='px-8 py-6 '>
+            Name
+          </th>
+          <th scope='col' className='px-8 py-6'>
+            Capital
+          </th>
+          <th scope='col' className='px-8 py-6'>
+            Code
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {data?.map((country, index) => (
+          <tr
+            key={index}
+            className={`odd:bg-white even:bg-secondary/5 rounded-bl-lg rounded-br-lg text-secondary/80 ${
+              data?.length - 1 !== index ? 'border-b border-secondary/10' : ''
+            } `}
+          >
+            <td className='px-8 py-4 whitespace-nowrap'>{country.name}</td>
+            <td className='px-8'> {country.capital}</td>
+            <td className='px-8 py-4'> {country.code}</td>
           </tr>
-        </thead>
-        <tbody>
-          {data?.countries?.map((country, index) => (
-            <tr
-              key={index}
-              className={`odd:bg-white even:bg-secondary/5 rounded-bl-lg rounded-br-lg text-secondary/80 ${
-                data?.countries?.length - 1 !== index ? 'border-b border-secondary/10' : ''
-              } `}
-            >
-              <td className='px-8 py-4 whitespace-nowrap'>{country.name}</td>
-              <td className='px-8'> {country.capital}</td>
-              <td className='px-8 py-4'> {country.code}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </Suspense>
+        ))}
+      </tbody>
+    </table>
   )
 }
 
