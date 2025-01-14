@@ -7,13 +7,13 @@ export default {
         primary: '#171743',
         secondary: '#282832',
         tetiary: '#b0e0e6',
-        red: '#ff3b3b',
-        danger: '#c34242',
+        red: '#d93636',
+        danger: '#b22222',
       },
       backgroundColor: {
         primary: '#e9f02e',
         secondary: '#9da093',
-        danger: '#c34242',
+        danger: '#b22222',
         tetiary: '#b0e0e6',
       },
       fontFamily: {

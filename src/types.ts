@@ -8,3 +8,5 @@ export interface Countries {
 export interface GetCountriesData {
   countries: Countries[]
 }
+
+export interface AlertProps { message: string; onClose?: Function; type: 'error' | 'success' }
