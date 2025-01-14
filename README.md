@@ -20,11 +20,11 @@ Follow these steps to get the project up and running:
 
 2. **Run the Development Server**: 
    After installing the dependencies, you can start the development server using:
-   
-   ```bash
-   ```
-   npm run dev
 
+   ```bash
+     npm run dev
+   ```
+ 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
