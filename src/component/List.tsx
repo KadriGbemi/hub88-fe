@@ -18,9 +18,6 @@ const CountriesComponent = ({ data, loading }: CountriesProps) => {
             Name
           </th>
           <th scope='col' className='px-8 py-6'>
-            Capital
-          </th>
-          <th scope='col' className='px-8 py-6'>
             Code
           </th>
         </tr>
@@ -34,7 +31,6 @@ const CountriesComponent = ({ data, loading }: CountriesProps) => {
             } `}
           >
             <td className='px-8 py-4 whitespace-nowrap'>{country.name}</td>
-            <td className='px-8'> {country.capital}</td>
             <td className='px-8 py-4'> {country.code}</td>
           </tr>
         ))}
