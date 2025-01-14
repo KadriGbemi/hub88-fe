@@ -12,14 +12,17 @@ Follow these steps to get the project up and running:
 
 1. **Install Dependencies**: 
    First, you need to install all the necessary dependencies. This can be done using the following command:
+
    ```bash
    npm run i
-
+   ```
    This will install all the required packages listed in the package.json file.
 
 2. **Run the Development Server**: 
    After installing the dependencies, you can start the development server using:
+   
    ```bash
+   ```
    npm run dev
 
 ## Expanding the ESLint configuration
